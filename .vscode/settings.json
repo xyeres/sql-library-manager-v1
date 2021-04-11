@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "treehouse-libaray",
+            "database": "\\\\wsl$\\Ubuntu-20.04\\home\\xyeres\\Developer\\treehouse\\sql-library-manager-v1\\library.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
