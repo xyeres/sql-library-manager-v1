@@ -32,7 +32,7 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
-  err.status = error.status || 500
+  err.status = err.status || 500
   console.error(`Error: ${err.status} - ${err.message}`)
   // set locals, only providing error in development
   res.locals.message = err.message;
