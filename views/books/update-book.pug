@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-    h1 #{title}
+    h2 #{title}
     form(method="POST" action=`/books/${book.id}`)
         if errors
             include form-errors

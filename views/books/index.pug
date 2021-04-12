@@ -1,9 +1,13 @@
 extends ../layout
 
 block content
-    h1= title
-    p
-        a.button(href='/books/new') Create New Book
+    h2 #{title} (#{count})
+    .searchContainer
+        p
+            a.button.item(href='/books/new') Create New Book
+            form.item(method="get" action="/books/search")
+                input.search(type="text" name="q" placeholder="Search...")
+                input(type="submit" value="Go" hidden)
     table
         thead
             tr
@@ -16,7 +20,18 @@ block content
                 - var bookID = book.id;
                 tr
                     td
-                        a(href=`books/${bookID}`) #{book.title}
+                        a(href=`/books/${bookID}`) #{book.title}
                     td= book.author
                     td= book.genre
                     td= book.year
+
+    if pages
+        - var start = 0
+        - var comma = ', '
+        ul Pages 
+            while start < pages 
+                li.pagination
+                    if start == pages - 1
+                        - comma = ''
+                    a(href=`/books?page=${start}`) #{start+1}#{comma}
+                - start++
