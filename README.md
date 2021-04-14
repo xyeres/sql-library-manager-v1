@@ -1,4 +1,4 @@
-# sql-library-manager-v1
+# sql-library-manager-v1 (Techdegree Proj. #8)
 
 This sample test project implements a basic CRUD application for a library cataloge. 
 
