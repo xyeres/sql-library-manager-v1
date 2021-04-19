@@ -27,6 +27,7 @@ app.use('/users', usersRouter);
 app.use(function (req, res, next) {
   const error = new Error('Sorry, that page cannot be found.');
   error.status = 404;
+  res.status(error.status);
   res.render('page-not-found', { error });
 });
 

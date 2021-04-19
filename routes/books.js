@@ -108,11 +108,16 @@ router.post('/new', asyncHandler(async (req, res, next) => {
 // Shows book detail form
 router.get('/:id', asyncHandler(async (req, res, next) => {
     const book = await Book.findByPk(req.params.id);
-    const ctx = {
-        title: "Book details",
-        book
+    if (book) {
+        const ctx = {
+            title: "Book details",
+            book
+        }
+        res.render('books/update-book', ctx)
+    } else {
+        res.status(404);
     }
-    res.render('books/update-book', ctx)
+    
 }));
 
 // Updates book info in the database
@@ -148,7 +153,7 @@ router.post('/:id/delete', asyncHandler(async (req, res, next) => {
         await book.destroy();
         res.redirect('/books');
     } else {
-        res.sendStatus(404);
+        res.status(404);
     }
 }));
 
