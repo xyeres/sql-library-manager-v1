@@ -116,6 +116,7 @@ router.get('/:id', asyncHandler(async (req, res, next) => {
         res.render('books/update-book', ctx)
     } else {
         res.status(404);
+        next();
     }
     
 }));
@@ -154,6 +155,8 @@ router.post('/:id/delete', asyncHandler(async (req, res, next) => {
         res.redirect('/books');
     } else {
         res.status(404);
+        next();
+
     }
 }));
 
